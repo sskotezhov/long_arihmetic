@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/admi/Desktop/test/build",
+  "command": "/usr/bin/g++ -I/home/admi/Desktop/test/. -g -o CMakeFiles/bignum.dir/bignum.cpp.o -c /home/admi/Desktop/test/bignum.cpp",
+  "file": "/home/admi/Desktop/test/bignum.cpp",
+  "output": "CMakeFiles/bignum.dir/bignum.cpp.o"
+},
+{
+  "directory": "/home/admi/Desktop/test/build",
+  "command": "/usr/bin/g++ -I/home/admi/Desktop/test/. -g -o CMakeFiles/main.dir/main.cpp.o -c /home/admi/Desktop/test/main.cpp",
+  "file": "/home/admi/Desktop/test/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+}
+]
