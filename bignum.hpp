@@ -6,9 +6,11 @@ void say_hello();
 class big_num
 {
     public:
-    void print();
-    void set_value(std::string arr);
+        big_num(double num);
+        void print();
+        void str_to_num(std::string arr);
 
     private:
-    std::string value;
+        bool sign;
+        std::string value;
 };

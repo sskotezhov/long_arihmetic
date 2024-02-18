@@ -5,7 +5,6 @@
 
 int main()
 {
-    big_num ex;
-    ex.set_value("hello world");
+    big_num ex = 213421.214;
     ex.print();
 }
