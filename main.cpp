@@ -7,7 +7,7 @@ int main()
 {
     float a = 124.53;
     double b = 12456.623;
-    long double c = 435.5346346;
+    long double c = 435.534634612312;
     big_num ex = a;
     big_num ex1 = b;
     big_num ex2 = c;
