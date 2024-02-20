@@ -5,7 +5,10 @@ class big_num
 {
     public:
         big_num(long double num);
+        big_num();
+        big_num(std::string num);
         std::string num_to_str();
+        big_num amount(big_num a, big_num b);
 
     private:
         bool sign;
