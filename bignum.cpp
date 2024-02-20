@@ -1,26 +1,31 @@
 #include <bignum.hpp>
 #include <cmath>
 
-void big_num::print()
-{
-    std::cout << value;
-}
 
-void big_num::str_to_num(std::string arr)
-{
-    value = arr;
-}
-
-big_num::big_num(double num)
+big_num::big_num(long double num)
 {
     if (num < 0)
     {
+        num = -num;
         sign = 0;
     }
     else
     {
         sign = 1;
     }
-    num = fabs(num);
-    value = std::to_string(num);
+    long double tmp;
+    fract_part = std::to_string(modfl(num, &tmp));
+    int_part = std::to_string(num);
+}
+std::string big_num::num_to_str()
+{
+        if (sign == 0)
+        {
+            return "-" + int_part + "." + fract_part;
+        }
+        else
+        {
+            return int_part + "." + fract_part;
+        }
+            
 }

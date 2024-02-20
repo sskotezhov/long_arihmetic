@@ -1,16 +1,16 @@
 #pragma once
 #include <iostream>
 #include <string.h>
-void say_hello();
-
 class big_num
 {
     public:
-        big_num(double num);
-        void print();
-        void str_to_num(std::string arr);
+        big_num(long double num);
+        std::string num_to_str();
 
     private:
         bool sign;
-        std::string value;
+        std::string int_part;
+        std::string fract_part;
+        unsigned int_part_len;
+        unsigned fract_part_len;
 };
