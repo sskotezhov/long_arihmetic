@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.0.0...3.19)
+project(bignum)
+add_library(bignum bignum.hpp bignum.cpp)
+include_directories(.)
+target_link_libraries(bignum)
+add_executable(main main.cpp)
+add_subdirectory(tests)
+
