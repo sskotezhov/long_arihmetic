@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <algorithm>
 #include <string.h>
 class big_num
 {
@@ -8,7 +9,9 @@ class big_num
         big_num();
         big_num(std::string num);
         std::string num_to_str();
-        big_num amount(big_num a, big_num b);
+        big_num operator +();
+        big_num operator -();
+        big_num operator +(big_num b);
 
     private:
         bool sign;

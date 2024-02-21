@@ -5,13 +5,12 @@
 
 int main()
 {
-    float a = 124.53;
-    double b = 12456.623;
-    long double c = 435.534634612312;
+    std::string a = "124.53";
+    std::string b = "2456.623";
+    std::string c = "435.534634612312";
     big_num ex = a;
     big_num ex1 = b;
     big_num ex2 = c;
-    std::cout << ex.num_to_str() << std::endl;
-    std::cout << ex1.num_to_str() << std::endl;
-    std::cout << ex2.num_to_str() << std::endl;
+    big_num out = ex1+ex2;
+    std::cout << out.num_to_str() << std::endl;
 }
