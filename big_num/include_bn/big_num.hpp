@@ -14,6 +14,7 @@ namespace big_num {
             big_num operator +();
             big_num operator -();
             big_num operator +(big_num b);
+            void remove_zeros();
 
         private:
             bool sign;

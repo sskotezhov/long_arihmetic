@@ -3,11 +3,24 @@
 #include <cstdlib>
 
 namespace big_num {
+    void big_num::remove_zeros()
+    {
+        while (int_part[0] == '0' && int_part_len > 1)
+        {
+            int_part.erase(0);
+            int_part_len--;
+        }
+        while (fract_part[fract_part_len-1] == '0' && fract_part_len > 1)
+        {
+            fract_part.erase(fract_part_len-1);
+            fract_part_len--;
+        }
+    }
     big_num::big_num(std::string num)
     {
         if (num[0] == '-')
         {
-            num.erase(0);
+            num.erase(0, 1);
             sign = 0;
         }
         else
@@ -27,6 +40,7 @@ namespace big_num {
         }
         int_part_len = int_part.length();
         fract_part_len = fract_part.length();
+        (*this).remove_zeros();
     }
     big_num::big_num(long double num)
     {
@@ -34,12 +48,18 @@ namespace big_num {
         {
             sign = 1;
         }
+        else
+        {
+            sign = 0;
+            num = -num;
+        }
         std::string str = std::to_string(num);
         long len = str.find(".");
         int_part = str.substr(0, len);
-        fract_part = str.substr(len + 1, str.length());
+        fract_part = str.substr(len + 1, 16);
         int_part_len = int_part.length();
         fract_part_len = fract_part.length();
+        (*this).remove_zeros();
     }
     big_num::big_num()
     {
