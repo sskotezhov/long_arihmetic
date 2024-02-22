@@ -147,7 +147,8 @@ namespace big_num {
     }
     big_num Calculate_pi(int len)
     {
-        big_num pi("3.14");
+        std::string nulls(len, '0');
+        big_num pi("3." + nulls);
         return pi;
     }
 }
