@@ -114,6 +114,12 @@ namespace big_num {
                 atmp = b.int_part + b.fract_part;
             }
         }
+        else
+        {
+            tmp_fract_part_len = (*this).fract_part_len;
+            atmp = (*this).int_part + (*this).fract_part;
+            btmp = b.int_part + b.fract_part;
+        }
         std::reverse(atmp.begin(), atmp.end());
         std::reverse(btmp.begin(), btmp.end());
         int lena = atmp.length(), lenb = btmp.length();
@@ -121,7 +127,8 @@ namespace big_num {
         int minlen = std::min(lena, lenb), maxlen = std::max(lena,lenb);
         for (int i = 0; i < minlen; i++)
         {
-            int tmp = (int)atmp[i] + (int)btmp[i] - 96 + tmp/10;
+            tmp /= 10;
+            tmp = (int)atmp[i] + (int)btmp[i] - '0' - '0';
             ctmp.append(std::to_string(tmp%10));
         }
         std::string tmpstr = "";
@@ -137,5 +144,10 @@ namespace big_num {
         ctmp.insert(tmp_fract_part_len, ".");
         std::reverse(ctmp.begin(), ctmp.end());
         return big_num(ctmp);
+    }
+    big_num Calculate_pi(int len)
+    {
+        big_num pi("3.14");
+        return pi;
     }
 }

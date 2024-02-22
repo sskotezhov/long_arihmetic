@@ -23,4 +23,5 @@ namespace big_num {
             unsigned int_part_len;
             unsigned fract_part_len;
     };
+    big_num Calculate_pi(int len);
 }
