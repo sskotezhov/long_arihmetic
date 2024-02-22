@@ -13,9 +13,7 @@ namespace big_num {
             std::string num_to_str();
             big_num operator +();
             big_num operator -();
-            big_num operator +(big_num b);
             void remove_zeros();
-
         private:
             bool sign;
             std::string int_part;

@@ -89,66 +89,17 @@ namespace big_num {
         tmp.sign = !tmp.sign;
         return tmp;
     }
-    big_num big_num::operator+(big_num b)
-    {
-        std::string atmp, btmp, ctmp;
-        int tmp_fract_part_len = 0;
-        if ((*this).fract_part_len != b.fract_part_len)
-        {
-            if ((*this).fract_part_len > b.fract_part_len)
-            {
-                tmp_fract_part_len = (*this).fract_part_len;
-                std::string nulls((*this).fract_part_len - b.fract_part_len, '0');
-                btmp = b.fract_part;
-                btmp.append(nulls);
-                btmp = b.int_part + btmp;
-                atmp = (*this).int_part + (*this).fract_part;
-            }
-            else
-            {
-                tmp_fract_part_len = b.fract_part_len;
-                std::string nulls(b.fract_part_len - (*this).fract_part_len, '0');
-                btmp = (*this).fract_part;
-                btmp.append(nulls);
-                btmp = (*this).int_part + btmp;
-                atmp = b.int_part + b.fract_part;
-            }
-        }
-        else
-        {
-            tmp_fract_part_len = (*this).fract_part_len;
-            atmp = (*this).int_part + (*this).fract_part;
-            btmp = b.int_part + b.fract_part;
-        }
-        std::reverse(atmp.begin(), atmp.end());
-        std::reverse(btmp.begin(), btmp.end());
-        int lena = atmp.length(), lenb = btmp.length();
-        int tmp = 0;
-        int minlen = std::min(lena, lenb), maxlen = std::max(lena,lenb);
-        for (int i = 0; i < minlen; i++)
-        {
-            tmp /= 10;
-            tmp = (int)atmp[i] + (int)btmp[i] - '0' - '0';
-            ctmp.append(std::to_string(tmp%10));
-        }
-        std::string tmpstr = "";
-        if (lena > lenb)
-        {
-            tmpstr = atmp.substr(minlen);
-        }
-        else
-        {
-            tmpstr = btmp.substr(minlen);
-        }
-        ctmp.append(tmpstr);
-        ctmp.insert(tmp_fract_part_len, ".");
-        std::reverse(ctmp.begin(), ctmp.end());
-        return big_num(ctmp);
-    }
+    
     big_num Calculate_pi(int len)
     {
-        std::string nulls(len, '0');
-        big_num pi("3." + nulls);
+        std::string fract_part_pi = "";
+        for (int i = 0; i < len; i++)
+        {
+            fract_part_pi.append(std::to_string(std::rand() % 9 + 1));
+        }
+        std::string Pi = "3.";
+        Pi.append(fract_part_pi);
+        big_num pi(Pi);
         return pi;
     }
 }
